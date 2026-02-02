@@ -38,7 +38,7 @@ Hãy thận trọng khi sử dụng mã.
 
 Ping từ container đến máy chủ Host:
 bash
-# Thay <IP_CUA_BAN> bằng IP thực tế, ví dụ 192.168.1.244
+# Thay <IP_CUA_BAN> bằng IP thực tế
 docker run -it --rm alpine:latest ping -c 4 <IP_CUA_BAN>
 Hãy thận trọng khi sử dụng mã.
 
