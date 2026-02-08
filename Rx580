@@ -1,0 +1,32 @@
+2. Khi bạn lắp RX 580, làm theo trình tự sau:
+Bước 1: Lắp card vật lý
+Tắt máy, rút điện
+
+Lắp RX 580 vào slot PCIe x16
+
+Kết nối nguồn phụ 8-pin (bắt buộc cho RX 580)
+
+Kết nối màn hình vào cổng HDMI/DisplayPort của RX 580 (không dùng cổng onboard)
+
+Bước 2: Vào BIOS/UEFI
+Bật máy, nhấn Del/F2 vào BIOS
+
+Tìm mục Primary Display/Graphics → chọn PCIe/Discrete
+
+Lưu và thoát
+
+Bước 3: Boot vào Ubuntu và cài driver
+bash
+# Cập nhật hệ thống
+sudo apt update && sudo apt upgrade -y
+
+# Cài driver AMD cơ bản từ kho Ubuntu (đơn giản, ổn định)
+sudo apt install firmware-amd-graphics xserver-xorg-video-amdgpu mesa-vulkan-drivers
+
+# Hoặc nếu cần ROCm cho AI/ML:
+# wget https://repo.radeon.com/amdgpu-install/latest/ubuntu/jammy/amdgpu-install_latest_all.deb
+# sudo dpkg -i amdgpu-install_latest_all.deb
+# sudo amdgpu-install --usecase=graphics --no-32
+
+# Khởi động lại
+sudo reboot
